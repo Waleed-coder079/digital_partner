@@ -1,9 +1,17 @@
 from openai import OpenAI
 import json
 import re
-from prompts import CONTENT_PROMPT
+from prompts import CONTENT_PROMPT_MYTH_VS_FACT as CONTENT_PROMPT
+from dotenv import load_dotenv
+from openai import OpenAI
+import os
+load_dotenv()
 
-client = OpenAI(timeout=60)
+client = OpenAI(
+    api_key=os.getenv("OPENAI_API_KEY"),
+    timeout=60
+)
+# client = OpenAI(timeout=60)
 
 def generate_content(topic, audience, goal, tone):
     prompt = CONTENT_PROMPT.format(

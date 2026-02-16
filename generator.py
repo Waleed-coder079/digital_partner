@@ -1,6 +1,8 @@
 from ai_content import generate_content
 from ai_background import generate_background
 from renderer import render_post
+import os
+
 
 def generate_post():
     topic = "How AI automation transforms eCommerce support"
@@ -14,13 +16,27 @@ def generate_post():
     print("Generating background...")
     bg = generate_background()
 
-    print("Rendering final image...")
-    img = render_post(bg, content)
+    print("Rendering all designs...")
+    structures = [
+        "ChallengeSolutionImpact",
+        "Tips",
+        "MythVsFact",
+        "StepByStep",
+        "MistakesToAvoid",
+        "ArrowFlow",
+        "ChevronVertical",
+        "ConnectedCircles",
+        "VerticalArrowFlow",
+        "ChevronHorizontal"
+    ]
+    output_dir = "output"
+    os.makedirs(output_dir, exist_ok=True)
 
-    path = "output/post.png"
-    img.save(path)
-
-    print("Saved:", path)
+    for structure in structures:
+        img = render_post(bg, content, structure=structure)
+        path = f"{output_dir}/post_{structure}.png"
+        img.save(path)
+        print("Saved:", path)
 
 if __name__ == "__main__":
     generate_post()
