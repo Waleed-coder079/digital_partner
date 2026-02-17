@@ -3,8 +3,6 @@ from ai_background import generate_background
 from renderer import render_post
 import os
 
-from topic import Social_Media_Platform
-
 
 def generate_post():
     topic = "How AI automation transforms eCommerce support"

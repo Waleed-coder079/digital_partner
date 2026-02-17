@@ -13,13 +13,14 @@ client = OpenAI(
 )
 # client = OpenAI(timeout=60)
 
-def generate_content(topic, audience, goal, tone, Social_Media_Platform):
+def generate_content(topic, audience, goal, tone, Social_Media_Platform, niche):
     prompt = CONTENT_PROMPT.format(
         topic=topic,
         audience=audience,
         goal=goal,
         tone=tone,
-        social_media_platform=Social_Media_Platform
+        social_media_platform=Social_Media_Platform,
+        niche=niche
     )
 
     res = client.responses.create(
