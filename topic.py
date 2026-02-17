@@ -8,8 +8,8 @@ load_dotenv()
 
 # Configuration
 Niche = "SaaS"
-Target_Audience_Role = "Startup founders"
-Content_Objective = "Educational"
+Audience = "Startup founders"
+Goal = "Educational"
 Social_Media_Platform = "LinkedIn"
 
 # Database configuration
@@ -68,8 +68,8 @@ def generate_trending_topic():
     # Get previous topics from database
     previous_topics = get_previous_topics()
     
-    prompt = f"""You are an expert social media strategist for {Niche} companies targeting {Target_Audience_Role}. 
-Generate a trending social media topic for today that aligns with the content objective: {Content_Objective}
+    prompt = f"""You are an expert social media strategist for {Niche} companies targeting {Audience}. 
+Generate a trending social media topic for today that aligns with the content objective: {Goal}
 
 IMPORTANT RULES:
 1. Generate ONLY ONE single topic - do not provide multiple options

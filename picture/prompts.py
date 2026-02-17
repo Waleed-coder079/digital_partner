@@ -1,11 +1,12 @@
 CONTENT_PROMPT_CHALLENGE_SOLUTION_IMPACT = """
 You are a senior LinkedIn content strategist.
 
-Create content for a professional single-image LinkedIn post.
+Create content for a professional single-image {Social_Media_Platform} post.
 
 Return STRICT JSON only.
 
 Topic: {topic}
+niche: {niche}
 Audience: {audience}
 Goal: {goal}
 Tone: {tone}

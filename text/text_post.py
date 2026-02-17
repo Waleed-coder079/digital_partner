@@ -8,9 +8,10 @@ load_dotenv()
 # Configuration variables
 g_topic = "Leveraging advanced analytics for data-driven product decisions in early-stage SaaS."
 Niche = "SaaS"
-Target_Audience_Role = "Startup founders"
-Content_Objective = "Educational"
+Audience = "Startup founders"
+Goal = "Educational"
 Social_Media_Platform = "LinkedIn"
+Tone = "Professional"
 
 # Initialize OpenAI API Client
 API_KEY = os.getenv('OPENAI_API_KEY')
@@ -19,27 +20,28 @@ if not API_KEY:
 
 client = OpenAI(api_key=API_KEY)
 
-def generate_text_post(topic, niche, target_audience, content_objective, platform):
+def generate_text_post(topic, niche, Audience, Goal, platform, Tone):
     """
     Generate a complete text post with description and hashtags based on the topic and configuration
     """
-    prompt = f"""You are an expert social media content writer for {niche} companies targeting {target_audience}.
+    prompt = f"""You are an expert social media content writer for {niche} companies targeting {Audience}.
 
 Topic: {topic}
 Platform: {platform}
-Content Objective: {content_objective}
+Content Objective: {Goal}
+Tone: {Tone}
 
 Generate a complete social media post in this exact format:
 
 POST TEXT:
-Write a compelling 1-2 paragraph post that expands on the topic. Make it suitable for {platform}. Include a call-to-action that encourages engagement from {target_audience}. The post should be conversational, professional, and value-driven.
+Write a compelling 1-2 paragraph post that expands on the topic. Make it suitable for {platform}. Include a call-to-action that encourages engagement from {Audience}. The post should be conversational, professional, and value-driven.
 
 HASHTAGS:
 Generate 5-8 relevant hashtags that match the topic and {niche}. Format them properly with # symbol.
 
 RULES:
 1. Keep the post professional but conversational and authentic
-2. Focus on value and relevance for {target_audience}
+2. Focus on value and relevance for {Audience}
 3. Make hashtags specific to the {niche} and topic
 4. Include industry-relevant hashtags
 5. Include a clear call-to-action (CTA)
@@ -75,9 +77,10 @@ if __name__ == "__main__":
     print("=" * 70)
     print(f"\nTopic: {g_topic}")
     print(f"Niche: {Niche}")
-    print(f"Target Audience: {Target_Audience_Role}")
+    print(f"Target Audience: {Audience}")
     print(f"Platform: {Social_Media_Platform}")
-    print(f"Objective: {Content_Objective}\n")
+    print(f"Objective: {Goal}\n")
+    print(f"Tone: {Tone}\n")
     
     print("=" * 70)
     print("GENERATING TEXT POST...")
@@ -86,9 +89,10 @@ if __name__ == "__main__":
     text_post = generate_text_post(
         topic=g_topic,
         niche=Niche,
-        target_audience=Target_Audience_Role,
-        content_objective=Content_Objective,
-        platform=Social_Media_Platform
+        target_audience=Audience,
+        content_objective=Goal,
+        platform=Social_Media_Platform,
+        tone=Tone
     )
     
     print(f"\n{text_post}")

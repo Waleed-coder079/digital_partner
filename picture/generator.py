@@ -3,15 +3,19 @@ from ai_background import generate_background
 from renderer import render_post
 import os
 
+from topic import Social_Media_Platform
+
 
 def generate_post():
     topic = "How AI automation transforms eCommerce support"
+    niche = "eCommerce"
     audience = "eCommerce founders"
     goal = "Promotional"
     tone = "Professional"
+    Social_Media_Platform = "LinkedIn"
 
     print("Generating content...")
-    content = generate_content(topic, audience, goal, tone)
+    content = generate_content(topic, audience, goal, tone, Social_Media_Platform, niche)
 
     print("Generating background...")
     bg = generate_background()
